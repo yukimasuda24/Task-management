@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>タスク管理ツール</h1>
+    <table border="1">
+        <tr>
+            <th>タスク</th>
+            <th>概要</th>
+            <th>ステータス</th>
+        </tr>
+        <tr th:each="task : ${tasks}" th:object="${task}">
+            <td th:text="*{taskName}"></td>
+            <td th:text="*{overview}"></td>
+            <td th:switch="*{taskStatus}">
+                <p th:case="0">NEW</p>
+                <p th:case="1">START</p>
+                <p th:case="2">COMPLETION</p>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
