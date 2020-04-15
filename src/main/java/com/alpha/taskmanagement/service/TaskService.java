@@ -13,6 +13,9 @@ public class TaskService {
 
     public List<Task> getTasks() {
         // TODO DBからタスクを取得する
+        if(tasks.size() > 0) {
+            return tasks;
+        }
         Task task1 = new Task();
         task1.setTaskName("タスク１");
         task1.setOverview("タスク１の概要");
@@ -24,5 +27,11 @@ public class TaskService {
         task2.setTaskStatus(2);
         tasks.add(task2);
         return tasks;
+    }
+
+    public void addTask(Task task) {
+        // TODO DBにタスクを追加する
+        tasks.add(task);
+        return;
     }
 }
